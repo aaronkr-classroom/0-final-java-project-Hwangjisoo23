@@ -1,18 +1,18 @@
 package com.market.main;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import java.util.Scanner;
 import com.market.bookitem.Book;
 import com.market.cart.Cart;
 import com.market.member.Admin;
 import com.market.member.User;
 import com.market.exception.CartException;
-
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 public class Welcome {
 
@@ -27,6 +27,7 @@ public class Welcome {
 //		String[][] mBook = new String[NUM_BOOK][NUM_ITEM];
 //		Book[]mBookList = new Book[NUM_BOOK];
 //		Book[]mBookList;
+		new GuestWindow("고객 정보 입력", 0, 0, 1000, 750);
 		ArrayList<Book> mBookList;
 		int mTotalBook = 0;
 		
@@ -231,7 +232,7 @@ public class Welcome {
 //						mCartItem[mCartCount++] = new CartItemBook(booklist[numId]);
 //						mCart.mCartCount = mCartCount++;
 //						mCartCount++;
-							mCart.insertBook(booklist.get(numId);
+							mCart.insertBook(booklist.get(numId));
 					}
 				}
 				quit = true;
@@ -412,7 +413,7 @@ public class Welcome {
 						for (int i = 0; i < 7; i++)
 							fw.write(writeBook[i] + "\n");
 						fw.close();
-						System.out.println("�� ���� ������ ����Ǿ����ϴ�.");
+						System.out.println("");
 					} catch (Exception e) {
 						System.out.println(e);
 					}
@@ -430,7 +431,7 @@ public class Welcome {
 //		booklist[0] = new Book ("ISBN1234", "쉽게 배우는 JSP 웹 프로그래밍",27000);
 //		booklist[0]. setAuthor("송미영");
 //		booklist[0]. setDescription("단계별로 쇼핑몰 구현하며 배우는 JSP 웹 프로그래밍");
-//		booklist[0]. setCategory ("IT전문서");
+//		booklist[0]. setCategory ("IT전문서");......
 //		booklist[0]. setReleaseDate("2018/10/08");
 //
 //		booklist[1] = new Book("ISBN1235", "안드로이드 프로그래밍", 33000);
@@ -490,7 +491,7 @@ public class Welcome {
 		return 0;
 	}
 	
-	public static void setFileToBookList(Book[]booklist) {
+	public static void setFileToBookList(ArrayList<Book> booklist) {
 		try {
 			FileReader fr = new FileReader("book.txt");
 			BufferedReader reader = new BufferedReader(fr);
